@@ -1,0 +1,21 @@
+#!/bin/bash
+
+set -e
+
+echo "Updating system..."
+apt update && apt upgrade -y
+
+echo "Installing base tools..."
+apt install -y curl sudo ca-certificates gnupg git nano htop unzip
+
+echo "Installing Docker..."
+curl -fsSL https://get.docker.com | sh
+systemctl enable docker
+systemctl start docker
+
+echo "Installing Tailscale..."
+curl -fsSL https://tailscale.com/install.sh | sh
+
+echo "Done!"
+docker --version
+tailscale version
