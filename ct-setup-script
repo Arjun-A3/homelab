@@ -13,9 +13,6 @@ curl -fsSL https://get.docker.com | sh
 systemctl enable docker
 systemctl start docker
 
-echo "Installing Tailscale..."
-curl -fsSL https://tailscale.com/install.sh | sh
 
 echo "Done!"
 docker --version
-tailscale version
